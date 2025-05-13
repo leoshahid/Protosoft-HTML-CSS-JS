@@ -17,7 +17,7 @@
         <div class="logo">
           <img src="assets/logo.png" alt="ProstoSoft logo" />
         </div>
-        <nav class="nav">
+        <nav class="nav desktop-nav">
           <div class="nav-item-gradient">
             <a class="active" href="#">Home</a>
           </div>
@@ -29,48 +29,141 @@
           <a href="#">Contact</a>
         </nav>
 
-        <a href="#" class="btn-gradient">Get in Touch →</a>
+        <a href="#" class="btn-gradient desktop-btn">Get in Touch →</a>
+
+        <!-- Hamburger Menu for Mobile -->
+        <button id="hamburger" class="hamburger-menu">
+          <span></span>
+          <span></span>
+          <span></span>
+        </button>
       </header>
 
+      <!-- Mobile Navigation Menu -->
+      <div id="mobileMenu" class="mobile-menu">
+        <div class="mobile-menu-header">
+          <button id="closeMenu" class="close-menu">
+            <span>&times;</span>
+          </button>
+        </div>
+        <nav class="mobile-nav">
+          <div class="nav-item-gradient">
+            <a href="#" class="active">Home</a>
+          </div>
+          <a href="#">Who We Help</a>
+          <a href="#">Solutions</a>
+          <a href="#">How We Work</a>
+          <a href="#">Why ProstoSoft</a>
+          <a href="#">Testimonials</a>
+          <a href="#">Contact</a>
+        </nav>
+        <div class="mobile-nav-btn-container">
+          <a href="#" class="btn-gradient">Get in Touch →</a>
+        </div>
+      </div>
+
       <div class="hero">
-        <div class="hero-content">
-          <!-- <p class="welcome">Welcome to <span>Prosto Soft</span></p> -->
+        <!-- Mobile-optimized structure -->
+        <div class="hero-mobile">
+          <!-- Welcome message -->
           <div class="gradient-border">
             <div class="welcome">
               <span class="welcome-text">Welcome to our site</span>
             </div>
           </div>
+
+          <!-- Heading -->
           <h1 class="hero-heading">
-            If The Tech <span class="gradient-text">Fails</span>, It’s <br />
-            On You. That’s Why It Can’t.
+            If The Tech <span class="gradient-text">Fails</span>, It's
+            <br class="mobile-hidden" />
+            On You. That's Why It Can't.
           </h1>
+
+          <!-- Image with badges for mobile -->
+          <div class="hero-image">
+            <img
+              class="hero-image-mb"
+              src="assets/images/man-with-laptop-mb.gif"
+              alt="Developer Illustration"
+            />
+            <!-- Logo on laptop for mobile -->
+            <div class="laptop-logo">
+              <img src="assets/no-text-logo.svg" alt="ProstoSoft Logo" />
+            </div>
+            <!-- Floating Badge: Scalable Retail Systems -->
+            <div class="floating-badge badge-left">
+              <img
+                src="assets/gear-icon.svg"
+                alt="Gear"
+                style="transform: scale(1.5)"
+              />
+              <span><strong>Scalable Retail </strong><br />Systems</span>
+            </div>
+            <!-- Floating Badge: Deep Understanding -->
+            <div class="floating-badge badge-right">
+              <img
+                style="transform: scale(1.5)"
+                src="assets/briefcase-icon.svg"
+                alt="Book"
+              />
+              <span><strong>Deep </strong><br />Understanding</span>
+            </div>
+          </div>
+
+          <!-- Subheading paragraph -->
           <p class="subheading">
             We build scalable retail systems, platforms, and MVPs for people
             like you — decision-makers with deadlines, expectations, and no
             margin for guesswork.
           </p>
+
+          <!-- Button -->
           <a href="#" class="btn-gradient">Get in Touch</a>
         </div>
-        <div class="hero-image">
-          <img
-            src="assets/images/man-with-laptop.gif"
-            alt="Developer Illustration"
-          />
 
-          <!-- Floating Badge: Scalable Retail Systems -->
-          <div class="floating-badge badge-left">
-            <img
-              src="assets/gear-icon.svg"
-              alt="Gear"
-              style="transform: translateY(20px) scale(1.2)"
-            />
-            <span><strong>Scalable Retail </strong><br />Systems</span>
+        <!-- Desktop-optimized structure - hidden on mobile -->
+        <div class="hero-desktop">
+          <div class="hero-content">
+            <div class="gradient-border">
+              <div class="welcome">
+                <span class="welcome-text">Welcome to our site</span>
+              </div>
+            </div>
+            <h1 class="hero-heading">
+              If The Tech <span class="gradient-text">Fails</span>, It's
+              <br class="mobile-hidden" />
+              On You. That's Why It Can't.
+            </h1>
+            <p class="subheading">
+              We build scalable retail systems, platforms, and MVPs for people
+              like you — decision-makers with deadlines, expectations, and no
+              margin for guesswork.
+            </p>
+            <a href="#" class="btn-gradient">Get in Touch</a>
           </div>
-
-          <!-- Floating Badge: Deep Understanding -->
-          <div class="floating-badge badge-right">
-            <img src="assets/briefcase-icon.svg" alt="Book" />
-            <span><strong>Deep </strong><br />Understanding</span>
+          <div class="hero-image">
+            <img
+              src="assets/images/man-with-laptop.gif"
+              alt="Developer Illustration"
+            />
+            <!-- Logo on laptop for desktop -->
+            <div class="laptop-logo">
+              <img src="assets/no-text-logo.svg" alt="ProstoSoft Logo" />
+            </div>
+            <!-- Floating Badge: Scalable Retail Systems -->
+            <div class="floating-badge badge-left">
+              <img
+                src="assets/gear-icon.svg"
+                alt="Gear"
+                style="transform: translateY(35px) scale(1.2)"
+              />
+              <span><strong>Scalable Retail </strong><br />Systems</span>
+            </div>
+            <!-- Floating Badge: Deep Understanding -->
+            <div class="floating-badge badge-right">
+              <img src="assets/briefcase-icon.svg" alt="Book" />
+              <span><strong>Deep </strong><br />Understanding</span>
+            </div>
           </div>
         </div>
       </div>
@@ -91,7 +184,7 @@
               works closely with founders to shape product architecture, set
               priorities, and build fast — without compromising quality. If
               you're launching a new online service or eCommerce experience,
-              we’ll make it real.
+              we'll make it real.
             </p>
             <a href="#" class="btn-gradient">Get in Touch →</a>
           </div>
@@ -198,6 +291,12 @@
       </section>
 
       <section class="how-we-work">
+        <h2 class="section-title-how-we-work section-title-how-we-work-mb">
+          How <span>We Work</span>
+        </h2>
+        <div class="work-roadmap-mb">
+          <img src="assets/path-mb.svg" alt="Roadmap Illustration" />
+        </div>
         <div class="how-we-work-grid">
           <!-- Left Side: Steps -->
           <div class="work-steps">
@@ -241,7 +340,7 @@
               <div class="card-content">
                 <h3>Support & Growth:</h3>
                 <p>
-                  We don’t disappear after launch. We stay onboard to help
+                  We don't disappear after launch. We stay onboard to help
                   scale, evolve, and maintain your product.
                 </p>
               </div>
@@ -249,9 +348,9 @@
 
             <div class="work-cta">
               <p>Curious about working together?</p>
-              <a href="#" class="btn-gradient">Let’s See If We’re a Match →</a>
+              <a href="#" class="btn-gradient">Let's See If We're a Match →</a>
               <p class="note">
-                <strong>No pressure</strong> — just a quick chat to see if we’re
+                <strong>No pressure</strong> — just a quick chat to see if we're
                 a good fit.
               </p>
             </div>
@@ -270,7 +369,7 @@
           Choose Us
         </h2>
         <p class="subtitle">
-          We Don’t Do <span class="red">Everything</span>. We Do
+          We Don't Do <span class="red">Everything</span>. We Do
           <span class="blue">Retail Tech</span>.
         </p>
 
@@ -326,7 +425,7 @@
         <!-- Testimonials Section -->
         <section class="testimonial-section">
           <h2 class="section-title">
-            <span class="highlight">What It’s Like</span> to<br />Work With Us
+            <span class="highlight">What It's Like</span> to<br />Work With Us
           </h2>
 
           <div class="testimonial-row">
@@ -337,11 +436,17 @@
             />
             <div class="testimonial-card">
               <p>
-                “They didn’t just take the brief. They challenged our
-                assumptions and delivered something smarter.”
+                "They didn't just take the brief. They challenged our
+                assumptions and delivered something smarter."
               </p>
               <hr class="testimonial-divider" />
               <p class="testimonial-author">
+                <span class="testimonial-img-mb">
+                  <img
+                    src="assets/images/what-it-like-to work-with-us/image-1.png"
+                    alt="Maria"
+                  />
+                </span>
                 <span class="author-name">Maria T.</span>
                 <span class="author-role">Product Lead</span>
               </p>
@@ -356,12 +461,18 @@
             />
             <div class="testimonial-card">
               <p>
-                “We needed to integrate multiple tools — from our storefront to
+                "We needed to integrate multiple tools — from our storefront to
                 our inventory and CRM. ProstoSoft handled it all without
-                disrupting our operations. Smooth, clear, and reliable.”
+                disrupting our operations. Smooth, clear, and reliable."
               </p>
               <hr class="testimonial-divider" />
               <p class="testimonial-author">
+                <span class="testimonial-img-mb">
+                  <img
+                    src="assets/images/what-it-like-to work-with-us/image-2.png"
+                    alt="Kevin"
+                  />
+                </span>
                 <span class="author-name">Kevin R.</span>
                 <span class="author-role">CTO</span>
               </p>
@@ -376,11 +487,17 @@
             />
             <div class="testimonial-card">
               <p>
-                “What I love is how they think — it’s not just ‘tell us what to
-                build,’ they actually co-create solutions with us.”
+                "What I love is how they think — it's not just 'tell us what to
+                build,' they actually co-create solutions with us."
               </p>
               <hr class="testimonial-divider" />
               <p class="testimonial-author">
+                <span class="testimonial-img-mb">
+                  <img
+                    src="assets/images/what-it-like-to work-with-us/image-3.png"
+                    alt="Sandra"
+                  />
+                </span>
                 <span class="author-name">Sandra D.</span>
                 <span class="author-role">CEO</span>
               </p>
@@ -392,14 +509,14 @@
         <section class="cta-section">
           <div class="cta-container">
             <div class="cta-left">
-              <h2>Let’s Build Something<br />Meaningful — Together.</h2>
+              <h2>Let's Build Something<br />Meaningful — Together.</h2>
               <p>
-                We’ll ask a few thoughtful questions and see if we’re the right
+                We'll ask a few thoughtful questions and see if we're the right
                 tech partner for your goals.
               </p>
               <a href="#" class="btn-cta"
                 ><span class="gradient-text"
-                  >Let’s See If We’re a Match →</span
+                  >Let's See If We're a Match →</span
                 ></a
               >
             </div>
@@ -459,7 +576,7 @@
             <img src="assets/phone-icon.svg" alt="Phone Icon" />
             <span>+380 977 2070 68</span>
           </div>
-          <a href="#" class="btn-gradient">Let’s Talk →</a>
+          <a href="#" class="btn-gradient">Let's Talk →</a>
         </div>
       </div>
 
