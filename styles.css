@@ -1051,7 +1051,6 @@ strong {
 @media screen and (max-width: 768px) {
   body {
     background-image: url("assets/mobile-bg.svg");
-    background-repeat: no-repeat;
     background-position: 0 500px; /* Offset the background to start 150px from the top */
   }
   .mobile-nav-btn-container {
