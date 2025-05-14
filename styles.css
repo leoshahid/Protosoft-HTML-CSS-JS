@@ -26,7 +26,7 @@ strong {
   font-weight: 800 !important;
 }
 .page-wrapper {
-  margin: 20px 250px 0 250px;
+  margin: 20px 30px 0 30px;
 }
 
 /* Header */
@@ -177,11 +177,11 @@ strong {
 }
 
 /* Media Queries */
-@media screen and (max-width: 1750px) {
+/* @media screen and (max-width: 1750px) {
   .page-wrapper {
     margin: 20px 100px 0 100px;
   }
-}
+} */
 
 .testimonial-img-mb {
   display: none;
@@ -1945,5 +1945,22 @@ strong {
 
   .modal-title {
     font-size: 36px;
+  }
+}
+/* Small Mobile Devices */
+@media screen and (max-width: 385px) {
+  .badge-left {
+    bottom: 225px;
+    left: -31px;
+    scale: 1;
+    scale: 0.9;
+    z-index: 10;
+  }
+
+  .badge-right {
+    top: 140px;
+    right: -38px;
+    scale: 0.9;
+    z-index: 10;
   }
 }
