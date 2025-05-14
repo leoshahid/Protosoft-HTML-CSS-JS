@@ -619,5 +619,91 @@
       <p class="footer-copy">© 2020 - 2025 ProstoSoft. All Rights Reserved</p>
     </footer>
     <script src="script.js"></script>
+
+    <!-- Modal Overlay -->
+    <div id="contactModal" class="modal-overlay">
+      <!-- Modal Container -->
+      <div class="modal-container">
+        <!-- Modal Content -->
+        <div class="modal-content">
+          <div class="modal-left">
+            <h2 class="modal-title">
+              Let's <span class="gradient-text">Talk</span>
+            </h2>
+            <p class="modal-subtitle">
+              Tell us a bit about yourself — we'll follow up shortly.
+            </p>
+
+            <form class="modal-form">
+              <div class="modal-input-group">
+                <div class="modal-input-icon">
+                  <img
+                    src="assets/person-icon.svg"
+                    alt="Person"
+                    width="24"
+                    height="24"
+                  />
+                </div>
+                <input
+                  type="text"
+                  placeholder="Alex Morgan"
+                  class="modal-input"
+                />
+              </div>
+
+              <div class="modal-input-group">
+                <div class="modal-input-icon">
+                  <img
+                    src="assets/mail-color-icon.svg"
+                    alt="Email"
+                    width="24"
+                    height="24"
+                  />
+                </div>
+                <input
+                  type="email"
+                  placeholder="alex@company.com"
+                  class="modal-input"
+                />
+              </div>
+
+              <button type="button" class="modal-submit-btn">
+                Let's Talk <span class="modal-btn-arrow">→</span>
+              </button>
+
+              <!-- <p class="modal-note">
+                <strong>No pressure</strong> — just a quick chat to see if we're
+                a good fit.
+              </p> -->
+
+              <div class="modal-success-message">
+                <h3 class="modal-success-title">Thanks For Reaching Out!</h3>
+                <p class="modal-success-text">
+                  We'll be in touch soon with a few smart questions to explore
+                  how we can help.
+                </p>
+              </div>
+            </form>
+          </div>
+
+          <div class="modal-right">
+            <img
+              src="assets/images/modal.png"
+              alt="Person working on laptop"
+              class="modal-image"
+            />
+          </div>
+
+          <button class="modal-close-btn" id="modalCloseBtn">
+            <img
+              src="assets/close-icon.svg"
+              alt="Close"
+              width="24"
+              height="24"
+            />
+          </button>
+        </div>
+      </div>
+    </div>
   </body>
 </html>
