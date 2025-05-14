@@ -35,6 +35,52 @@ document.addEventListener("DOMContentLoaded", function () {
     });
   }
 
+  // Smooth scrolling for all navigation links
+  const allNavLinks = document.querySelectorAll(
+    ".nav a, .mobile-nav a, .footer-col a[href^='#'], .footer-columns a[href^='#']"
+  );
+
+  allNavLinks.forEach((link) => {
+    link.addEventListener("click", function (e) {
+      // Only process internal links (those starting with #)
+      const href = this.getAttribute("href");
+      if (href.startsWith("#")) {
+        e.preventDefault();
+
+        const targetId = href.substring(1);
+        const targetElement = document.getElementById(targetId);
+
+        if (targetElement) {
+          // Special case for contact section to ensure it scrolls to the right place
+          let offset = 80; // Default offset for most sections
+
+          // Adjust offset based on section and screen size
+          if (targetId === "contact") {
+            // Smaller offset for contact section on mobile
+            offset = window.innerWidth < 768 ? 20 : 50;
+          } else if (targetId === "home") {
+            offset = 0; // No offset needed for home section
+          }
+
+          // Calculate final scroll position
+          const scrollPosition =
+            targetElement.getBoundingClientRect().top +
+            window.pageYOffset -
+            offset;
+
+          // Smooth scroll to the element
+          window.scrollTo({
+            top: scrollPosition,
+            behavior: "smooth",
+          });
+
+          // Update URL without page reload
+          history.pushState(null, null, href);
+        }
+      }
+    });
+  });
+
   // Form submission async function
   async function submitData({ name, email }) {
     try {
@@ -116,21 +162,56 @@ document.addEventListener("DOMContentLoaded", function () {
       const name = nameInput.value.trim();
       const email = emailInput.value.trim();
 
-      // Simple validation
-      if (name === "" || email === "") {
-        // Show error or handle invalid input
-        if (name === "") {
-          nameInput.parentElement.style.borderColor = "#e74c3c";
-        } else {
-          nameInput.parentElement.style.borderColor = "transparent";
-        }
+      // Reset error states
+      nameInput.parentElement.style.borderColor = "transparent";
+      emailInput.parentElement.style.borderColor = "transparent";
+      nameInput.parentElement.classList.remove("error");
+      emailInput.parentElement.classList.remove("error");
 
-        if (email === "") {
+      // Check if error message already exists and remove it
+      const existingErrorMsg = emailInput.parentElement.nextElementSibling;
+      if (
+        existingErrorMsg &&
+        existingErrorMsg.classList.contains("error-message")
+      ) {
+        existingErrorMsg.remove();
+      }
+
+      // Validation flags
+      let hasError = false;
+
+      // Simple validation for name
+      if (name === "") {
+        nameInput.parentElement.style.borderColor = "#e74c3c";
+        nameInput.parentElement.classList.add("error");
+        hasError = true;
+      }
+
+      // Validation for email
+      if (email === "") {
+        emailInput.parentElement.style.borderColor = "#e74c3c";
+        emailInput.parentElement.classList.add("error");
+        hasError = true;
+      } else {
+        // Email format validation using regex
+        const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+        if (!emailRegex.test(email)) {
           emailInput.parentElement.style.borderColor = "#e74c3c";
-        } else {
-          emailInput.parentElement.style.borderColor = "transparent";
-        }
+          emailInput.parentElement.classList.add("error");
 
+          // Create and append error message
+          const errorMsg = document.createElement("p");
+          errorMsg.textContent = "Please enter a valid email address";
+          errorMsg.classList.add("error-message");
+
+          // Insert after the email input group
+          emailInput.parentElement.insertAdjacentElement("afterend", errorMsg);
+
+          hasError = true;
+        }
+      }
+
+      if (hasError) {
         return;
       }
 
@@ -191,7 +272,16 @@ document.addEventListener("DOMContentLoaded", function () {
       // Reset form state if it was previously submitted
       if (modalForm && modalSuccessMessage) {
         const inputGroups = modalForm.querySelectorAll(".modal-input-group");
-        inputGroups.forEach((group) => (group.style.display = "flex"));
+        inputGroups.forEach((group) => {
+          group.style.display = "flex";
+          group.style.borderColor = "transparent"; // Reset any error borders
+          group.classList.remove("error"); // Remove error class
+        });
+
+        // Remove any error messages
+        const errorMessages = modalForm.querySelectorAll(".error-message");
+        errorMessages.forEach((msg) => msg.remove());
+
         modalSubmitBtn.style.display = "flex";
         modalSubmitBtn.disabled = false;
         // Restore button HTML with arrow
@@ -205,6 +295,10 @@ document.addEventListener("DOMContentLoaded", function () {
         }
 
         modalSuccessMessage.classList.remove("show");
+
+        // Clear input fields
+        const inputs = modalForm.querySelectorAll("input");
+        inputs.forEach((input) => (input.value = ""));
       }
     }
   }
@@ -213,6 +307,19 @@ document.addEventListener("DOMContentLoaded", function () {
     if (modal) {
       modal.classList.remove("show");
       document.body.style.overflow = ""; // Re-enable scrolling
+
+      // Reset form validation states if form exists
+      if (modalForm) {
+        const inputGroups = modalForm.querySelectorAll(".modal-input-group");
+        inputGroups.forEach((group) => {
+          group.style.borderColor = "transparent";
+          group.classList.remove("error");
+        });
+
+        // Remove any error messages
+        const errorMessages = modalForm.querySelectorAll(".error-message");
+        errorMessages.forEach((msg) => msg.remove());
+      }
     }
   }
 

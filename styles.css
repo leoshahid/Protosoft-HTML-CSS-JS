@@ -10,6 +10,10 @@
   --font-primary: "Plus Jakarta Sans", sans-serif;
 }
 
+html {
+  scroll-behavior: smooth;
+}
+
 body {
   margin: 0;
   padding: 0;
@@ -1752,6 +1756,18 @@ strong {
 
 .modal-input-group:focus-within {
   border-color: #4361ee;
+}
+
+.modal-input-group.error {
+  border-color: #e74c3c;
+  background-color: #fff0f0;
+}
+
+.error-message {
+  color: #e74c3c;
+  font-size: 14px;
+  margin: 6px 0 12px 18px;
+  font-family: var(--font-primary);
 }
 
 .modal-input-icon {
